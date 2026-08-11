@@ -3,9 +3,18 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Persian digit helper */
+  const faDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+  const toFa = (value) => String(value).replace(/\d/g, (digit) => faDigits[Number(digit)]).replace(/\./g, "٫");
+
   /* Year */
   const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  if (yearEl) {
+    const jalaliYear = new Intl.DateTimeFormat("fa-IR-u-ca-persian", { year: "numeric" })
+      .format(new Date())
+      .replace(/[^\u06F0-\u06F9\d]/g, "");
+    yearEl.textContent = jalaliYear || toFa(new Date().getFullYear());
+  }
 
   /* Sticky header */
   const header = document.getElementById("siteHeader");
@@ -63,7 +72,7 @@
     if (Number.isNaN(target)) return;
 
     if (prefersReducedMotion) {
-      el.textContent = target.toFixed(decimals);
+      el.textContent = toFa(target.toFixed(decimals));
       return;
     }
 
@@ -73,7 +82,7 @@
     const tick = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = (target * eased).toFixed(decimals);
+      el.textContent = toFa((target * eased).toFixed(decimals));
       if (progress < 1) requestAnimationFrame(tick);
     };
 
@@ -99,11 +108,11 @@
   /* Terminal typing effect */
   const terminal = document.getElementById("terminalOut");
   const lines = [
-    { text: "$ nebulon deploy --prod", className: "cmd" },
+    { text: "$ kiatech deploy --prod", className: "cmd" },
     { text: "→ detected framework: next.js 15", className: "dim" },
     { text: "→ building 24 packages ............ done", className: "dim" },
     { text: "→ uploading artifacts to 120 regions", className: "dim" },
-    { text: "✓ live at https://acme.nebulon.app", className: "ok" },
+    { text: "✓ live at https://acme.kiatech.app", className: "ok" },
     { text: "  build 41s · cache hit 92% · p95 42ms", className: "dim" }
   ];
 
@@ -180,14 +189,14 @@
     const email = form.email.value.trim();
 
     if (!emailPattern.test(email)) {
-      message.textContent = "Please enter a valid work email address.";
+      message.textContent = "لطفاً یک ایمیل سازمانی معتبر وارد کنید.";
       message.classList.add("error");
       form.email.focus();
       return;
     }
 
     message.classList.remove("error");
-    message.textContent = `Thanks! We sent setup instructions to ${email}.`;
+    message.textContent = `سپاسگزاریم! راهنمای راه‌اندازی به ${email} ارسال شد.`;
     form.reset();
   });
 
