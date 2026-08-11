@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nebulon — Ship software at the speed of thought</title>
+<meta name="description" content="Nebulon is the developer platform for building, shipping, and scaling modern applications." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Nebulon home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Nebulon</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-ghost nav-cta" href="#contact">Sign in</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Start free</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">v3.0 is live — edge runtime included</p>
+        <h1>Ship software at the <span class="grad">speed of thought</span></h1>
+        <p class="lead">
+          Nebulon gives your team one platform for builds, deploys, and observability —
+          so you spend less time on infrastructure and more time on product.
+        </p>
+        <form class="signup" id="signupForm" novalidate>
+          <label class="sr-only" for="email">Work email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" />
+          <button class="btn btn-primary" type="submit">Start free</button>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+        <ul class="hero-points">
+          <li>No credit card</li>
+          <li>Deploy in 60 seconds</li>
+          <li>Cancel anytime</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="window">
+          <div class="window-bar">
+            <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+            <span class="window-title">nebulon deploy</span>
+          </div>
+          <pre class="terminal"><code id="terminalOut"></code><span class="caret"></span></pre>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">p95 latency</span>
+          <strong class="stat-value"><span data-count="42">0</span> ms</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="container logos reveal">
+      <span class="logos-label">Trusted by engineering teams at</span>
+      <div class="logo-row">
+        <span>Arclight</span><span>Vertex</span><span>Northwind</span><span>Kuiper</span><span>Helios</span><span>Meridian</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stats-band">
+    <div class="container stats">
+      <div class="stat reveal"><strong><span data-count="99.99" data-decimals="2">0</span>%</strong><span>Uptime SLA</span></div>
+      <div class="stat reveal"><strong><span data-count="120">0</span>+</strong><span>Edge regions</span></div>
+      <div class="stat reveal"><strong><span data-count="8">0</span>M</strong><span>Daily builds</span></div>
+      <div class="stat reveal"><strong><span data-count="35">0</span>k</strong><span>Teams onboard</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Platform</p>
+        <h2>Everything you need after <code>git push</code></h2>
+        <p class="section-sub">One toolchain instead of twelve. Opinionated defaults, escape hatches everywhere.</p>
+      </header>
+      <div class="grid features">
+        <article class="card reveal">
+          <div class="icon">⚡</div>
+          <h3>Instant deploys</h3>
+          <p>Atomic builds with global cache warmup. Roll forward or back in a single click.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🛡️</div>
+          <h3>Security by default</h3>
+          <p>SOC 2 Type II, per-environment secrets, signed artifacts, and audit trails out of the box.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">📈</div>
+          <h3>Deep observability</h3>
+          <p>Traces, logs, and metrics correlated to the exact commit that shipped them.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🌍</div>
+          <h3>Edge runtime</h3>
+          <p>Run functions in 120+ regions with automatic failover and zero cold starts.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🤝</div>
+          <h3>Preview environments</h3>
+          <p>Every pull request gets a shareable URL with seeded data and real integrations.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🧩</div>
+          <h3>Open by design</h3>
+          <p>Terraform provider, REST and gRPC APIs, and a CLI that scripts cleanly.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="how">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps to production</h2>
+      </header>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Connect your repo</h3>
+          <p>Link GitHub, GitLab, or Bitbucket. Nebulon detects your framework automatically.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">02</span>
+          <h3>Configure once</h3>
+          <p>Declare environments, secrets, and scaling rules in a single versioned file.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">03</span>
+          <h3>Ship continuously</h3>
+          <p>Merge to main and let progressive rollouts, health checks, and alerts do the rest.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Customers</p>
+        <h2>Teams move faster on Nebulon</h2>
+      </header>
+      <div class="grid quotes">
+        <figure class="card quote reveal">
+          <blockquote>“We cut deploy time from 40 minutes to under two. Our on-call pages dropped by half.”</blockquote>
+          <figcaption><strong>Dana Reyes</strong><span>VP Engineering, Arclight</span></figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>“Preview environments changed how we do design review. Everyone tests the real thing.”</blockquote>
+          <figcaption><strong>Samir Patel</strong><span>Staff Engineer, Kuiper</span></figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>“We replaced four vendors with one platform and still came out ahead on cost.”</blockquote>
+          <figcaption><strong>Lena Fischer</strong><span>CTO, Meridian</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="pricing">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Pricing</p>
+        <h2>Simple plans that scale with you</h2>
+        <div class="toggle" role="group" aria-label="Billing period">
+          <button class="toggle-btn is-active" data-period="monthly" type="button">Monthly</button>
+          <button class="toggle-btn" data-period="yearly" type="button">Yearly <em>−20%</em></button>
+        </div>
+      </header>
+      <div class="grid pricing">
+        <article class="card plan reveal">
+          <h3>Starter</h3>
+          <p class="price"><span data-monthly="$0" data-yearly="$0">$0</span><small>/mo</small></p>
+          <p class="plan-sub">For side projects and prototypes.</p>
+          <ul>
+            <li>1 project</li><li>100 GB bandwidth</li><li>Community support</li><li>Preview deploys</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contact">Get started</a>
+        </article>
+
+        <article class="card plan featured reveal">
+          <span class="badge">Most popular</span>
+          <h3>Team</h3>
+          <p class="price"><span data-monthly="$49" data-yearly="$39">$49</span><small>/mo per seat</small></p>
+          <p class="plan-sub">For growing product teams.</p>
+          <ul>
+            <li>Unlimited projects</li><li>2 TB bandwidth</li><li>SSO &amp; audit logs</li><li>24/5 support</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Start free trial</a>
+        </article>
+
+        <article class="card plan reveal">
+          <h3>Enterprise</h3>
+          <p class="price"><span data-monthly="Custom" data-yearly="Custom">Custom</span></p>
+          <p class="plan-sub">For regulated and global orgs.</p>
+          <ul>
+            <li>Dedicated regions</li><li>99.99% SLA</li><li>SCIM &amp; BYOK</li><li>Named architect</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contact">Talk to sales</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container narrow">
+      <header class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions, answered</h2>
+      </header>
+      <div class="faq-list">
+        <details class="faq reveal">
+          <summary>How long does migration take?</summary>
+          <p>Most teams move a first service in an afternoon. Our CLI imports existing Docker and Terraform configs.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>Can we self-host?</summary>
+          <p>Yes. Enterprise plans support a hybrid control plane in your own VPC across AWS, GCP, and Azure.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>What happens when we exceed limits?</summary>
+          <p>Nothing breaks. We keep serving traffic and bill overages transparently at published rates.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>Do you support monorepos?</summary>
+          <p>Yes — affected-project detection means only changed packages rebuild on each commit.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container cta-inner reveal">
+      <h2>Ready to ship faster?</h2>
+      <p>Join 35,000 teams building on Nebulon. Free forever for small projects.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" href="#top">Start free</a>
+        <a class="btn btn-ghost btn-lg" href="#pricing">Compare plans</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Nebulon</span>
+      </a>
+      <p class="footer-note">The developer platform for modern applications.</p>
+    </div>
+    <nav aria-label="Product">
+      <h4>Product</h4>
+      <a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#how">Docs</a><a href="#faq">Changelog</a>
+    </nav>
+    <nav aria-label="Company">
+      <h4>Company</h4>
+      <a href="#top">About</a><a href="#testimonials">Customers</a><a href="#contact">Careers</a><a href="#contact">Contact</a>
+    </nav>
+    <nav aria-label="Legal">
+      <h4>Legal</h4>
+      <a href="#faq">Privacy</a><a href="#faq">Terms</a><a href="#faq">Security</a><a href="#faq">Status</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="year">2026</span> Nebulon Labs, Inc. All rights reserved.</p>
+    <button class="to-top" id="toTop" type="button">Back to top ↑</button>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
