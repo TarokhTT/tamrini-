@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" />
 <link rel="stylesheet" href="styles.css" />
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem("theme"); } catch (e) {}
+    var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">رفتن به محتوا</a>
@@ -28,6 +36,11 @@
       <a class="btn btn-ghost nav-cta" href="#contact">ورود</a>
       <a class="btn btn-primary nav-cta" href="#contact">شروع رایگان</a>
     </nav>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="تغییر حالت روشن و تاریک" title="حالت روشن / تاریک">
+      <span class="icon-moon" aria-hidden="true">🌙</span>
+      <span class="icon-sun" aria-hidden="true">☀️</span>
+    </button>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="باز و بسته کردن فهرست">
       <span></span><span></span><span></span>

@@ -15,7 +15,7 @@ python3 -m http.server 8000
 
 - `index.html` — page structure: hero, features, steps, testimonials, pricing, FAQ, CTA, footer.
 - `styles.css` — design tokens, layout, components, responsive and reduced-motion rules.
-- `script.js` — sticky header, mobile nav, scroll reveals, animated counters, typed terminal, pricing toggle, email validation.
+- `script.js` — theme (day/night) switch, sticky header, mobile nav, scroll reveals, animated counters, typed terminal, pricing toggle, email validation.
 
 ## Design tokens
 
@@ -35,6 +35,14 @@ All colors live as CSS custom properties in `:root` (`styles.css`):
 | `--gray` | `#D3CDCA` | muted text, borders |
 
 Semantic aliases (`--bg`, `--surface`, `--border`, `--text`, `--muted`, `--brand`, `--on-brand`) map to the palette, so re-theming only requires editing `:root`.
+
+## Day / night mode
+
+The header includes a 🌙/☀️ button that switches between the dark (night) and light (day) themes.
+
+- The active theme is set on `<html data-theme="dark|light">`; light overrides live in `html[data-theme="light"]` in `styles.css`.
+- The choice is saved in `localStorage` under `theme`; first-time visitors follow `prefers-color-scheme`.
+- An inline script in `<head>` applies the stored theme before paint to avoid a flash of the wrong theme.
 
 ## Notes
 

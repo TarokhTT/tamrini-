@@ -18,6 +18,35 @@
 
   /* Sticky header */
   const header = document.getElementById("siteHeader");
+
+  /* Theme (day/night) switch */
+  const themeToggle = document.getElementById("themeToggle");
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  const themeColors = { dark: "#111C27", light: "#FEFEFE" };
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (themeColorMeta) themeColorMeta.setAttribute("content", themeColors[theme]);
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+      themeToggle.title = theme === "light" ? "تغییر به حالت تاریک" : "تغییر به حالت روشن";
+    }
+  };
+
+  applyTheme(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      applyTheme(next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch (error) {
+        /* storage unavailable */
+      }
+    });
+  }
+
   const onScroll = () => header.classList.toggle("is-stuck", window.scrollY > 8);
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
